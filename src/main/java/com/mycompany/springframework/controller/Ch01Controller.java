@@ -9,11 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequestMapping("/ch01")
 public class Ch01Controller {
-	@RequestMapping("")
-	public String index() {
-		log.info("index() 실행1");
-		log.info("index() 실행2");
-		
-		return "ch01/index";
+	@RequestMapping("/content")
+	public String content() {
+				
+		return "ch01/content";
 	}
 }
