@@ -15,7 +15,31 @@
 	
 	<!-- 사용자 정의 자바스크립트 -->
 		<script>
-
+			function handleBtn1() {
+				console.log("handleBtn1() 실행");
+				
+				$.ajax({
+					url: "objectReturnJson1",
+					method: "get",
+					success: function(data){
+						console.log(data);
+					}
+				});
+				
+			}
+			
+			function handleBtn2() {
+				console.log("handleBtn2() 실행");
+				
+				$.ajax({
+					url: "objectReturnJson2",
+					method: "get",
+					success: function(data){
+						console.log(data);
+					}
+				});
+			}
+				
 				
 		</script>
 	
@@ -24,7 +48,7 @@
 			<div class="d-flex flex-column vh-100">
 				<%@ include file="/WEB-INF/views/common/header.jsp" %>
 				<div class="flex-grow-1  m-2">
-					<div class="d-flex row ">
+					<div class="d-flex row">
 						<div class="col-md-4">
 							<%@ include file="/WEB-INF/views/common/menu.jsp" %>
 						</div>
@@ -32,8 +56,11 @@
 						<div class="col-md-8">
 						
 							<div class="card">
-								<div class="card-header">content</div>
-								<div class="card-body"></div>
+								<div class="card-header">Object 리턴</div>
+								<div class="card-body">
+											<button onclick="handleBtn1()" class="btn btn-info btn-sm">파일 정보를 JSON으로 받기1</button>
+											<button onclick="handleBtn2()" class="btn btn-warning btn-sm">파일 정보를 JSON으로 받기2</button>
+								</div>
 							</div>
 							
 						</div>

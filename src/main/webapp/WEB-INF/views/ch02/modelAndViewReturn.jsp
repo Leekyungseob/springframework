@@ -15,7 +15,8 @@
 	
 	<!-- 사용자 정의 자바스크립트 -->
 		<script>
-
+			
+				
 				
 		</script>
 	
@@ -32,8 +33,16 @@
 						<div class="col-md-8">
 						
 							<div class="card">
-								<div class="card-header">content</div>
-								<div class="card-body"></div>
+								<div class="card-header">ModelAndView 타입 리턴</div>
+								<div class="card-body">
+								<p>장번호:${chNum}</p>
+								<p>로그인:${login}</p>
+								<p>사용자:${userName}</p>
+									
+									
+								
+									
+								</div>
 							</div>
 							
 						</div>
