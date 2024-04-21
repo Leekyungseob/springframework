@@ -17,7 +17,7 @@ public class Ch01Controller {
    public String content(String chNum, Model model) {
       /*LOGGER.info("content() 실행");*/
       log.info("content() 실행");
-      model.addAttribute("chNum",chNum);
+      model.addAttribute("chNum","ch01");
       return "ch01/content";
    }
    

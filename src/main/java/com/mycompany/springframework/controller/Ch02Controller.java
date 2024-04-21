@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.springframework.dto.FileInfo;
+import com.mycompany.springframework.dto.Ch02FileInfo;
+import com.mycompany.springframework.interceptor.Auth;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,14 +32,14 @@ import lombok.extern.slf4j.Slf4j;
 public class Ch02Controller {
 	@GetMapping("/getMethod")
 	
-	public String getMethod(String chNum,String bkind, String bno, Model model) {
+	public String getMethod(String bkind, String bno, Model model) {
 		//요청 처리 코드
 		log.info("getMethod() 실행");
-		log.info("chNum:" +chNum);
+		log.info("chNum:" +"ch02");
 		log.info("bkind: " + bkind);
 		log.info("bno: " + bkind);
 		
-		model.addAttribute("chNum", chNum);
+		model.addAttribute("chNum", "ch02");
 		return "ch02/getMethod";
 	}
 	
@@ -58,15 +59,15 @@ public class Ch02Controller {
 
 @RequestMapping("/postMethod")
 
-	public String postMethod(String chNum,String mid,String mpassword, Model model) {
+	public String postMethod(String mid,String mpassword, Model model) {
 	//요청 처리 코드
 	log.info("postMethod() 실행");
-	log.info("chNum:" +chNum);
+	log.info("chNum:" +"ch02");
 	log.info("mid:" +mid);
 	log.info("mpassword:" +mpassword);
 	
 	
-	model.addAttribute("chNum", chNum);
+	model.addAttribute("chNum", "ch02");
 	return "ch02/postMethod";
 	}
 
@@ -110,10 +111,10 @@ public void postMethodAjax(String mid, String mpassword, HttpServletResponse res
 	}
 
 	@GetMapping("/modelAndViewReturn")
-	public ModelAndView modelAndViewReturn(String chNum) {
+	public ModelAndView modelAndViewReturn() {
 		log.info("modelAndViewReturn() 실행");
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("chNum", chNum);
+		modelAndView.addObject("chNum", "ch02");
 		modelAndView.addObject("login",true);
 		modelAndView.addObject("userName","감자바");
 		modelAndView.setViewName("ch02/modelAndViewReturn");
@@ -168,8 +169,8 @@ public void postMethodAjax(String mid, String mpassword, HttpServletResponse res
 	}
 	
 	@GetMapping("/objectReturn")
-	public String objectReturn(String chNum, Model model) {
-		model.addAttribute("chNum",chNum);
+	public String objectReturn(Model model) {
+		model.addAttribute("chNum","ch02");
 		return "ch02/objectReturn";
 	}
 	
@@ -186,12 +187,29 @@ public void postMethodAjax(String mid, String mpassword, HttpServletResponse res
 	
 	@GetMapping(value="/objectReturnJson2", produces="application/json; charset=UTF-8")
 	@ResponseBody //리턴된 객체를 JSON으로 변환하고 응답 본문에 넣겠다.
-	public FileInfo objectReturnJson2() {
+	public Ch02FileInfo objectReturnJson2() {
 		log.info("objectReturnJson2() 실행");
-		FileInfo fileInfo = new FileInfo();
+		Ch02FileInfo fileInfo = new Ch02FileInfo();
 				fileInfo.setFileName("photo2.jpg");
 				fileInfo.setInfo("아름다운 풍경 사진");
 		return fileInfo;
+	}
+	
+	
+	@GetMapping("/testAuthInterceptor1")
+	public String testAuthInterceptor1(Model model) {
+		log.info("testAuthInterceptor1() 실행");
+		model.addAttribute("chNum","ch02");
+		return "ch02/testAuthInterceptor1";
+	}
+	
+	
+	@GetMapping("/testAuthInterceptor2")
+	@Auth
+	public String testAuthInterceptor2(Model model) {
+		log.info("testAuthInterceptor2() 실행");
+		model.addAttribute("chNum","ch02");
+		return "ch02/testAuthInterceptor2";
 	}
 	
 	
