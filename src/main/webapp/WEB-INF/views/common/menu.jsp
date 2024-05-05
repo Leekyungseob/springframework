@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"  %>
     
 <div class="accordion" id="accordionExample">
   <div class="accordion-item">
@@ -211,6 +212,65 @@
     </div>
   </div>
   
+  
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button ${chNum=='ch13'?'':'collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13" aria-expanded="${chNum=='ch13'}" aria-controls="collapse13">
+        Ch13. 데이터베이스 연동
+      </button>
+    </h2>
+    <div id="collapse13" class="accordion-collapse collapse ${chNum=='ch13'?'show':''}" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      <ul>
+         <li><a href="${pageContext.request.contextPath}/ch13/writeBoardForm">게시물 쓰기</a></li>
+        <li><a href="${pageContext.request.contextPath}/ch13/boardList">게시물 목록</a></li>
+       
+      </ul>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button ${chNum=='ch15'?'':'collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse15" aria-expanded="${chNum=='ch15'}" aria-controls="collapse15">
+        Ch15. 데이터베이스 연동
+      </button>
+    </h2>
+    <div id="collapse15" class="accordion-collapse collapse ${chNum=='ch15'?'show':''}" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      <ul>
+         <li><a href="${pageContext.request.contextPath}/ch15/accountList">계좌 이체하기</a></li>
+     
+       
+      </ul>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button ${chNum=='ch17'?'':'collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse17" aria-expanded="${chNum=='ch17'}" aria-controls="collapse17">
+        Ch17. 스프링 시큐리티
+      </button>
+    </h2>
+    <div id="collapse17" class="accordion-collapse collapse ${chNum=='ch17'?'show':''}" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      <ul>
+         <li><a href="${pageContext.request.contextPath}/ch17/loginForm">로그인</a></li>        
+         <li><a href="${pageContext.request.contextPath}/ch17/authorityCheck">권한별 메뉴보기</a></li>
+          <li><a href="${pageContext.request.contextPath}/ch17/userInfo">로그인 사용자 정보</a></li>
+          <li><a href="${pageContext.request.contextPath}/ch17/joinForm">회원 가입</a></li>
+         
+     
+       
+      </ul>
+      </div>
+    </div>
+  </div>
   
   
   

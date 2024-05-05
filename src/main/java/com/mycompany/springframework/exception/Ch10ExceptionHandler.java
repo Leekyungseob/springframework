@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 
 
 @Component
-@ControllerAdvice
+//@ControllerAdvice
 @Slf4j
 public class Ch10ExceptionHandler {
 	@ExceptionHandler(NullPointerException.class)
