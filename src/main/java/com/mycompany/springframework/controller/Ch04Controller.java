@@ -60,17 +60,5 @@ public class Ch04Controller {
 		return "redirect:/";
 	}
 	
-	@RequestMapping("/signup")
-	public String signup(@Valid Ch04SignupForm signupForm, Errors errors,Model model) {
-		model.addAttribute("chNum", "ch04");
-		log.info("실행");
-		//유효성 검사 실패시 다시 로그인 폼 보여주기
-		if(errors.hasErrors()) {
-			
-			return "ch04/signupForm";
-		}
-				
-		//로그인 처리
-		return "redirect:/";
-	}
+	
 }
